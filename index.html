@@ -23,10 +23,10 @@
       }
 
       h1 {
-        font-size: 3em;
+        font-size: 2.75em;
       }
       h2 {
-        font-size: 2.5em;
+        font-size: 2.25em;
       }
       h3 {
         font-size: 2em;
@@ -40,6 +40,7 @@
         <div class="col s12 l10 offset-l2">
 
           <div class="section">
+
             <h1>1. Algoritmizácia:</h1>
 
             <p>"Bonusové body" získajú riešenia ktoré:</p>
@@ -116,7 +117,7 @@
 
             <div class="section">
 
-              <h2>2.2. Simple strings</h2>
+              <h2>1.2. Simple strings</h2>
               <pre class="brush: typescript; gutter: false;">
                 decipherThis(str: string): string
               </pre>
@@ -146,7 +147,7 @@
             <h1>2. Funkcionálne programovanie:</h1>
 
             <div class="section">
-              <h2>3.1 ifs are so 2005</h2>
+              <h2>2.1 ifs are so 2005</h2>
 
               <pre class="brush: typescript;">
                 function getGenderByOrderType(order: any): string {
@@ -198,7 +199,7 @@
 
             <div class="section">
               <h2>2.2 simple FP</h2>
-              <p>Upravte nasledujúcu funkciu:</p>
+              <p>Analyzujte a upravte nasledujúcu funkciu:</p>
 
               <pre class="brush: typescript;">
                 function divideSmallestNumber(numbers: number[]): string {
@@ -227,7 +228,7 @@
                 <li>na fukncionálny zápis, pomocou funkcií map, reduce atď.</li>
                 <li>premenné by nemali byť potrebné (jeden const by mal stačiť), pracujte so vstupným poľom ako by bolo immutabilné</li>
                 <li>uprednostnite ternárny operátor pred if / else blokmi</li>
-                <li>možete počítať s tým, že v poli nebude nula a bude mať aspoň jedno kladné číslo</li>
+                <li>možete počítať s tým, že v poli nebude nula ani záporné čísla a bude mať aspoň jedno párne číslo</li>
               </ul>
 
             </div>
@@ -237,7 +238,7 @@
               <p>Napíšte funkciu ktorá premapuje hodnoty v objekte na uppercase, pokiaľ nezačínajú číslom</p>
 
               <pre class="brush: typescript;">
-                const mapOverThis = {
+                const person = {
                   'firstName': 'John',
                   'lastName': 'Doe',
                   'height': '185 cm',
@@ -245,12 +246,13 @@
                   'from': 'Philadelphia'
                 };
 
-                function upperCaseIfNotStartsWithNumber(object: any): any {
+                const upperCaseIfNotStartsWithNumber = (object: any): any => {
                   ...
-                }
+                };
 
-                upperCaseIfNotStartsWithNumber(mapOverThis); // vr8ti:
+                upperCaseIfNotStartsWithNumber(person);
                 /*
+                vráti:
                 {
                   'firstName': 'JOHN',
                   'lastName': 'DOE',
@@ -263,6 +265,10 @@
 
             </div>
           </div>
+
+          <div class="divider"></div>
+
+          <p>Vypracované riešenia dodajte formou ktorá vám najviac vyhovuje a podľa toho či ste sa rozhodli ich vypracovať v TS a teda s task runnermi na kompiláciu TS, poprípade testami, alebo v jednoduchšej verzii na stránky typu jsfiddle.</p>
         </div>
       </div>
     </div>
