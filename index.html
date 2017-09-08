@@ -1,1 +1,272 @@
-Hello World
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="./theme.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Testovacie úlohy</title>
+
+    <style>
+      .syntaxhighlighter {
+        padding: 5px;
+        border-radius: 2px;
+      }
+
+      ul.browser-default {
+        padding-left: 15px;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        font-size: 3em;
+      }
+      h2 {
+        font-size: 2.5em;
+      }
+      h3 {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+
+  <body class="grey lighten-4">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 l10 offset-l2">
+
+          <div class="section">
+            <h1>1. Algoritmizácia:</h1>
+
+            <p>"Bonusové body" získajú riešenia ktoré:</p>
+            <ul class="browser-default">
+              <li>(!) sú riešené funkcionálnym stýlom programovania (pure funkcie, immutabilné hodnoty, rekurzia atď)</li>
+              <li>budú napísané v TypeScripte</li>
+              <li>budú sprevádzané jednoduchými unit testami (voľný výber testovacieho frameworku) </li>
+            <ul>
+
+            <div class="section">
+
+              <h2>1.1 Simple arrays</h2>
+
+              <p>Vytvorte funkciu vyhovujúcu nasledujúcemu zápisu:</p>
+
+              <pre class="brush: typescript; gutter: false;">
+                getLengthOfMissingArray(arrayOfArrays: any[]): number
+              </pre>
+
+              <p>vstupom bude pole polí, napr.</p>
+
+              <pre class="brush: javascript; gutter: false; grey lighten-4">
+                [
+                  [4, 6, 8, 1],
+                  [2, 1],
+                  [899, null, 5, 0],
+                  [17]
+                ]
+              </pre>
+
+              <ul class="browser-default">
+                <li>Pri zoradeni tohto poľa je zrejmé, že dĺžky polí v ňom majú postupnosť, avšak jedno pole chýba.</li>
+                <li>Funkcia má vrátiť dĺžku tohto poľa (v tomto prípade 3).</li>
+                <li>Pokiaľ je "hlavné" pole prázne alebo null, funkcia vráti 0.</li>
+                <li>Počítajte s tým, že vždy bude chýbať práve jedno pole ktorého dĺžka bude medzi dĺžkami polí v poli</li>
+              </ul>
+
+              <h3>Príklady</h3>
+
+              <pre class="brush: typescript; gutter: false;">
+                getLengthOfMissingArray([
+                  [ 1, 2 ],
+                  [ 4, 5, 1, 1 ],
+                  [ 1 ],
+                  [ 5, 6, 7, 8, 9 ]
+                ]); // vráti 3
+              </pre>
+              <pre class="brush: typescript; gutter: false;">
+                getLengthOfMissingArray([
+                  [ 5, 2, 9 ],
+                  [ 4, 5, 1, 1 ],
+                  [ 1 ],
+                  [ 5, 6, 7, 8, 9 ]
+                ]); // vráti 2
+              </pre>
+              <pre class="brush: typescript; gutter: false;">
+                getLengthOfMissingArray([ [ ] ]); // vráti 0
+              </pre>
+              <pre class="brush: typescript; gutter: false;">
+                getLengthOfMissingArray([ [ null ], [ null, null, null ] ]); // vráti 2
+              </pre>
+              <pre class="brush: typescript; gutter: false;">
+                getLengthOfMissingArray([
+                  [ 'a', 'a', 'a' ],
+                  [ 'a', 'a' ],
+                  [ 'a', 'a', 'a', 'a' ],
+                  [ 'a' ],
+                  [ 'a', 'a', 'a', 'a', 'a', 'a']
+                ]); // vráti 5
+              </pre>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+
+              <h2>2.2. Simple strings</h2>
+              <pre class="brush: typescript; gutter: false;">
+                decipherThis(str: string): string
+              </pre>
+
+              <p>Funkcia odšifruje každé slovo zvlášť v zašifrovej správe. Podmienky:</p>
+              <ul class="browser-default">
+                <li>Prvé písmeno korešponduje kú kódu ASCII znaku (case sensitive)</li>
+                <li>Druhé písmeno treba zameniť s posledným písmenom</li>
+                <li>Posledné písmeno treba vymeniť s druhým písmenom</li>
+                <li>Pokiaľ má správa iba jedno písmeno, zostane nezmenená</li>
+                <li>Pokiaľ má správa iba dve písmená, je iba potrebné prekonvertovat kód ASCII znaku na písmeno</li>
+                <li>Žiadne prísne edge cases - správa je bez špeciálnych znakov atď.</li>
+              </ul>
+
+              <h3>Príklady</h3>
+
+              <pre class="brush: typescript; gutter: false;">
+                decipherThis('72olle 103doo 100ya'); // vráti 'Hello good day'
+              </pre>
+              <pre class="brush: typescript; gutter: false;">
+                decipherThis('82yade 115te 103o'); // vráti 'Ready set go'
+              </pre>
+            </div>
+
+            <div class="divider"></div>
+
+            <h1>2. Funkcionálne programovanie:</h1>
+
+            <div class="section">
+              <h2>3.1 ifs are so 2005</h2>
+
+              <pre class="brush: typescript;">
+                function getGenderByOrderType(order: any): string {
+                  var gender: string;
+
+                  if (order.type == 'flight') {
+                    if (order.gender == 'F') {
+                      gender = 'FEMALE';
+                    }
+                    else if (order.gender == 'M') {
+                      gender = 'MALE';
+                    }
+                    else {
+                      gender = '';
+                    }
+                  }
+                  else if (order.type == 'vacation') {
+                    if (order.gender == 'F') {
+                      gender = 'WOMAN';
+                    }
+                    else if (order.gender == 'M') {
+                      gender = 'MAN';
+                    }
+                    else {
+                      gender = '';
+                    }
+                  }
+                  else {
+                    gender = '';
+                  }
+
+                  return gender;
+                }
+              </pre>
+
+
+              <p>Uvedenú funkciu naštudujte a analyzujte čo robí.<br>Cieľom je zjednodušiť ju, aby bola čitateľnejšia, deskriptívnejšia, lahšie rozšíriteľnejšia, teda dosiahnuť zápis ktorý:</p>
+
+              <ul class="browser-default">
+                <li>nevyužíva if, else, else if, ani switch.</li>
+                <li>nevyužíva premennú var, ale iba const (jedna by mala stačiť)</li>
+              </ul>
+              <ul class="browser-default">
+                <li>popíšte, aký má tento zápis výhody a nevýhody, kedy je vhodný a kedy vyslovene nevhodný</li>
+                <li>predpokladajme, že argument order nebude null ani undefined.</li>
+              </ul>
+
+            </div>
+
+            <div class="section">
+              <h2>2.2 simple FP</h2>
+              <p>Upravte nasledujúcu funkciu:</p>
+
+              <pre class="brush: typescript;">
+                function divideSmallestNumber(numbers: number[]): string {
+                  var evenNumber;
+                  var dividedNumber;
+
+                  numbers = numbers.sort(function(a, b) { return a - b; })
+
+                  for (var i = 0; i < numbers.length; i++) {
+                    if (numbers[i] % 2 === 0) {
+                      evenNumber = numbers[i];
+                    }
+                  }
+
+                  dividedNumber = evenNumber / 2;
+
+                  if (dividedNumber < 10) {
+                    dividedNumber = '0' + dividedNumber;
+                  }
+
+                  return '' + dividedNumber;
+                }
+              </pre>
+
+              <ul class="browser-default">
+                <li>na fukncionálny zápis, pomocou funkcií map, reduce atď.</li>
+                <li>premenné by nemali byť potrebné (jeden const by mal stačiť), pracujte so vstupným poľom ako by bolo immutabilné</li>
+                <li>uprednostnite ternárny operátor pred if / else blokmi</li>
+                <li>možete počítať s tým, že v poli nebude nula a bude mať aspoň jedno kladné číslo</li>
+              </ul>
+
+            </div>
+
+            <div class="section">
+              <h2>2.3 object map</h2>
+              <p>Napíšte funkciu ktorá premapuje hodnoty v objekte na uppercase, pokiaľ nezačínajú číslom</p>
+
+              <pre class="brush: typescript;">
+                const mapOverThis = {
+                  'firstName': 'John',
+                  'lastName': 'Doe',
+                  'height': '185 cm',
+                  'kids': '2 sons',
+                  'from': 'Philadelphia'
+                };
+
+                function upperCaseIfNotStartsWithNumber(object: any): any {
+                  ...
+                }
+
+                upperCaseIfNotStartsWithNumber(mapOverThis); // vr8ti:
+                /*
+                {
+                  'firstName': 'JOHN',
+                  'lastName': 'DOE',
+                  'height': '185 cm',
+                  'kids': '2 sons',
+                  'from': 'PHILADELPHIA'
+                }
+                */
+              </pre>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./syntaxhighlighter.js"></script>
+  </body>
+</html>
